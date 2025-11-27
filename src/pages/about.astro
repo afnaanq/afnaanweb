@@ -13,6 +13,10 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillColour = "crimson";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -22,16 +26,31 @@ const goal = 3;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <style define:vars={{skillColour, fontWeight, textCase}}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+    .skill {
+    color: var(--skillColour);
+    font-weight: var(--fontWeight);
+    text-transform: var(--textCase);
+  }
+    </style>
   </head>
   <body>
+
     <a href="/">Home</a>
     <a href="/about/">About</a>
     <a href="/projects/">Projects</a>
+
     <h1>afnaan qasim</h1>
     <h2>{pageTitle}</h2>
+
     <p> I am a 22 year old Neuroscience student at Queen Mary University of London</p>
     <p> On my year abroad at UCLA, I studied programming. This included Python and C++ and I'm currently learning fullstack development.</p>
     <p> I thought I'd make a website to practice because.. why not.</p>
+
     <p>Here are a few facts about me:</p>
 <ul>
   <li>My name is {identity.firstName}.</li>
@@ -42,7 +61,7 @@ const goal = 3;
 </ul>
 <p>My skills are:</p>
 <ul>
-  {skills.map((skill) => <li>{skill}</li>)}
+  {skills.map((skill) => <li class = "skill">{skill}</li>)}
 </ul>
 
 {happy && <p>I am happy to be learning Astro!</p>}
