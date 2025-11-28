@@ -1,9 +1,9 @@
 ---
-import BaseLayout from './layouts/BaseLayout.astro';
-import Header from './components/Header.astro';
-import Footer from './components/Footer.astro';
-import Navigation from './components/Navigation.astro'
-import './styles/global.css';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Navigation from "../components/Navigation.astro";
+import "../styles/global.css";
 const pageTitle = "About Me";
 
 const identity = {
@@ -24,51 +24,62 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<html lang="en">
-  <head>
 <BaseLayout pageTitle={pageTitle}>
-<h2> Here's pretty much everything about me</h2>
+  <h2>Here's pretty much everything about me</h2>
+
+  <p>
+    I am a 22 year old Neuroscience student at Queen Mary University of London
+  </p>
+  <p>
+    On my year abroad at UCLA, I studied programming. This included Python and
+    C++ and I'm currently learning fullstack development.
+  </p>
+  <p>I thought I'd make a website to practice because.. why not.</p>
+
+  <p>Here are a few facts about me:</p>
+  <ul>
+    <li>My name is {identity.firstName}.</li>
+    <li>
+      I live in {identity.country} and I work as a {identity.occupation}.
+    </li>
+    {
+      identity.hobbies.length >= 2 && (
+        <li>
+          Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
+        </li>
+      )
+    }
+  </ul>
+  <p>My skills are:</p>
+  <ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+
+  {happy && <p>I am happy to be learning Astro!</p>}
+
+  {finished && <p>I finished this tutorial!</p>}
+
+  {
+    goal === 3 ? (
+      <p>My goal is to finish in 3 days.</p>
+    ) : (
+      <p>My goal is not 3 days.</p>
+    )
+  }
+
+  <script>
+    import "../scripts/menu.js";
+  </script>
 </BaseLayout>
 
-    <style is:global define:vars={{skillColour, fontWeight, textCase}}>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
-    .skill {
+<style is:global define:vars={{ skillColour, fontWeight, textCase }}>
+  h1 {
+    color: purple;
+    font-size: 4rem;
+  }
+  .skill {
     color: var(--skillColour);
     font-weight: var(--fontWeight);
     text-transform: var(--textCase);
   }
-    </style>
-  </head>
-  <body>
-
-    <p> I am a 22 year old Neuroscience student at Queen Mary University of London</p>
-    <p> On my year abroad at UCLA, I studied programming. This included Python and C++ and I'm currently learning fullstack development.</p>
-    <p> I thought I'd make a website to practice because.. why not.</p>
-
-    <p>Here are a few facts about me:</p>
-<ul>
-  <li>My name is {identity.firstName}.</li>
-  <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-  {identity.hobbies.length >= 2 &&
-    <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
-  }
-</ul>
-<p>My skills are:</p>
-<ul>
-  {skills.map((skill) => <li class = "skill">{skill}</li>)}
-</ul>
-
-{happy && <p>I am happy to be learning Astro!</p>}
-
-{finished && <p>I finished this tutorial!</p>}
-
-{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-
- <script>
-    import "./scripts/menu.js";
-  </script>
-</body>
-</html>
+</style>

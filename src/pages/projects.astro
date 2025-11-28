@@ -1,6 +1,6 @@
 ---
-import BaseLayout from './layouts/BaseLayout.astro';
-import BlogPost from './components/BlogPost.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogPost from '../components/BlogPost.astro';
 const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
 const pageTitle = "My projects";
 ---
@@ -16,7 +16,7 @@ const pageTitle = "My projects";
     </ul>
 </BaseLayout>
  <script>
-    import "./scripts/menu.js";
+    import "../scripts/menu.js";
   </script>
 </body>
 </html>
