@@ -1,9 +1,14 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Greeting from '../components/Greeting';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Greeting from "../components/Greeting";
+import Expertise from "../components/Expertise.astro";
 const pageTitle = "Home Page";
 ---
+
 <BaseLayout pageTitle={pageTitle}>
-</div>
-  <h2>My web subtitle</h2>
-	<Greeting client:load messages={["Hej", "Hallo","hola","habari"]} />
+  <div>
+    <Greeting client:load messages={["hey", "what's up", "hi", "hello"]} />
+    <h2>I'm a Neuroscience student, currently based in London, UK.</h2>
+    <Expertise />
+  </div></BaseLayout
+>
