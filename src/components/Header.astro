@@ -1,12 +1,21 @@
 ---
-import ThemeIcon from './ThemeIcon.astro';
-import Navigation from './Navigation.astro';
+import ThemeIcon from "./ThemeIcon.astro";
+import Navigation from "./Navigation.astro";
+import Switch from './Switch.astro';
 ---
-<header class="sticky top-0 bg-white/80 backdrop-blur-md shadow-lg rounded-full dark:bg-gray-900/80">
-    <nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx auto">
-        <div>
-        <ThemeIcon />
-        </div>
-        <Navigation />
-    </nav>
+
+<header class="sticky top-0 flex w-full justify-between">
+  <div>
+    <Switch />
+  </div>
+  <nav
+    class="flex justify-between items-center  
+    px-6 border border-purple-100/50 py-2 max-w-7xl mx-aut bg-white/80 
+    backdrop-blur-md shadow-md rounded-full dark:bg-gray-900/80"
+  >
+  <Navigation />
+  </nav>
+  <div>
+    socials
+  </div>
 </header>
