@@ -1,27 +1,36 @@
 ---
 import Navigation from "./Navigation.astro";
-import Switch from './Switch.astro';
-import Social from './Social.astro';
+import Switch from "./Switch.astro";
+import Social from "./Social.astro";
 import GithubLogo from "./GithubLogo.astro";
 import LinkedInLogo from "./LinkedInLogo.astro";
-import ResumeLogo from './ResumeLogo.astro';
+import ResumeLogo from "./ResumeLogo.astro";
 ---
 
 <header class="sticky top-0 flex w-full justify-between">
   <div>
+    <a
+      href="/"
+      aria-label="Home"
+      class="absolute left-1 top-1 hover:opacity-80 transition-opacity z-10"
+    >
+      <img src="/aqlogo.png" alt="Logo" class="w-10 h-10" />
+    </a>
+  </div>
+  <div>
     <Switch />
   </div>
+
   <nav
-    class="flex justify-between items-center  
-    px-6 border border-purple-100/50 py-2 max-w-7xl mx-aut bg-white/80 
+    class="flex justify-between items-center
+    px-6 border border-purple-100/50 dark:border-purple-100/10 py-2 bg-white/80
     backdrop-blur-md shadow-md rounded-full dark:bg-gray-900/80"
   >
-  <Navigation />
+    <Navigation />
   </nav>
 
   <div class="flex gap-4 items-center">
-
-    <Social platform="github" username="afnaanq" >
+    <Social platform="github" username="afnaanq">
       <GithubLogo class="w-6 h-6" />
     </Social>
 
@@ -29,10 +38,10 @@ import ResumeLogo from './ResumeLogo.astro';
       <LinkedInLogo class="w-6 h-6" />
     </Social>
 
-
-    <Social href="https://drive.google.com/file/d/10j8kiYMoqOOdy_p73OSGfYdV3BNjrQwY/view?usp=sharing" >
+    <Social
+      href="https://drive.google.com/file/d/10j8kiYMoqOOdy_p73OSGfYdV3BNjrQwY/view?usp=sharing"
+    >
       <ResumeLogo class="w-6 h-6" />
     </Social>
-
   </div>
 </header>
