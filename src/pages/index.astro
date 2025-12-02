@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Greeting from "../components/Greeting";
 import Expertise from "../components/Expertise.astro";
+import WorldClock from "../components/TimeTracker";
 const pageTitle = "Home Page";
 ---
 
@@ -10,5 +11,8 @@ const pageTitle = "Home Page";
     <Greeting client:load messages={["hey", "what's up", "hi", "hello"]} />
     <h2>I'm a Neuroscience student, currently based in London, UK.</h2>
     <Expertise />
+    <WorldClock client:load/>
   </div></BaseLayout
 >
+
+
