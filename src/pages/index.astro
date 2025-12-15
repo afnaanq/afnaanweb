@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Greeting from "../components/Greeting";
 import Expertise from "../components/Expertise.astro";
-const pageTitle = "Home Page";
+const pageTitle = "Afnaan Qasim | Neuro & Tech";
 
 const features = [
   {
@@ -34,16 +34,15 @@ const stats = [
     <main class="main content">
       <section class="hero-grid">
         <div class="hero-text">
-          <div class="eyebrow">welcome to the website</div>
+          <div class="eyebrow">Welcome to my website</div>
 
           <h1 class="display-title">
           
-            <Greeting client:load messages={["hey", "what's up", 'hi', 'hello']} />
+            <Greeting client:load messages={["Hey", 'Hi', 'Hello']} />
        
           </h1>
 
           <p class="lead-text">
-            Neuroscience undergrad, Developer and Entrepreneur.
             Building at the intersection of AI, tech and business.
           </p>
 
@@ -215,6 +214,7 @@ const stats = [
     color: var(--accent-regular);
   }
 
+  html.dark .btn-secondary,
   :global(:root.theme-dark) .btn-secondary {
     background: var(--gray-800);
     border-color: var(--gray-600);
@@ -256,7 +256,9 @@ const stats = [
     object-fit: cover;
     border-radius: var(--radius-lg, 1.5rem);
     box-shadow: var(--shadow-lg);
-  }
+}
+
+
 
   /* ===== EXPERTISE SECTION ===== */
   .expertise-section {
@@ -311,6 +313,7 @@ const stats = [
     border-color: var(--accent-regular);
   }
 
+  html.dark .feature-card,
   :global(:root.theme-dark) .feature-card {
     background: var(--gray-900);
     border-color: var(--gray-700);
@@ -325,6 +328,7 @@ const stats = [
     color: var(--gray-800);
   }
 
+  html.dark .card-number,
   :global(:root.theme-dark) .card-number {
     color: var(--gray-700);
   }
@@ -346,6 +350,7 @@ const stats = [
     margin-bottom: 1rem;
   }
 
+  html.dark .feature-subtitle,
   :global(:root.theme-dark) .feature-subtitle {
     color: var(--accent-dark);
   }
@@ -363,6 +368,7 @@ const stats = [
     transition: transform 0.3s;
   }
 
+  html.dark .card-arrow,
   :global(:root.theme-dark) .card-arrow {
     color: var(--accent-dark);
   }
@@ -387,6 +393,7 @@ const stats = [
     border: 1px solid var(--gray-800);
   }
 
+  html.dark .stats-grid,
   :global(:root.theme-dark) .stats-grid {
     background: var(--gray-900);
     border-color: var(--gray-700);
@@ -499,5 +506,3 @@ const stats = [
   }
 </style>
 </BaseLayout>
-
-

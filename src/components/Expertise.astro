@@ -1,5 +1,35 @@
-<div>
-    neuroscientist
-    developer
-    entrepreneur
+<div class="eyebrow-container">
+    <div class="eyebrow" >
+    Neuroscientist
+    </div>
+    <div class="eyebrow" >
+    Developer
+    </div>
+    <div class="eyebrow" >
+    Entrepreneur
+    </div>
 </div>
+
+<style>
+
+      .eyebrow-container{
+        display:flex;
+        justify-content: space-around;
+        gap:5rem;
+      }
+
+
+      .eyebrow {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--gradient-accent);
+    color: var(--accent-text-over);
+    border-radius: var(--radius-xl, 2rem);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    width: fit-content;
+    box-shadow: var(--shadow-accent, var(--shadow-md));
+  }
+  
+
+</style>
