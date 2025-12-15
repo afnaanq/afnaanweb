@@ -31,7 +31,8 @@ export default function Greeting({messages}) {
             : 'opacity-0 -translate-y-2'
         }`}
       >
-        {greeting}, my name is Afnaan Qasim.
+        {greeting}, my name is<br/>
+        Afnaan Qasim.
       </h1>
     </div>
   );

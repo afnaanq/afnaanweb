@@ -3,14 +3,501 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Greeting from "../components/Greeting";
 import Expertise from "../components/Expertise.astro";
 const pageTitle = "Home Page";
+
+const features = [
+  {
+    title:"Machine Learning",
+    subtitle:"AI and Deep Learning",
+    description:"Deep reinforcement learning for traffic signal optimisation, achieving 14% congestion reduction using neural networks and PyTorch implementations."
+  },
+  {
+    title:"Software Development",
+    subtitle:"Full Stack",
+    description:"React, TypeScript, Node.js. Currently learning and building scalable applications with modern frameworks and best practices to produce predictable, maintainable code."
+  },
+  {
+    title: "Neuroscience Research",
+    subtitle:"Brain & Cognition",
+    description:"Final year Neuroscience student at QMUL with year abroad at UCLA, exploring the intersection of neuroscience and technology."
+  }
+];
+const stats = [
+  { value: "4M+", label: "Content Views" },
+  { value: "150+", label: "Regular Clients" },
+  { value: "2", label: "Award Wins" },
+  { value: "2", label: "Businesses Founded" }
+];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <div>
-    <Greeting client:load messages={["hey", "what's up", "hi", "hello"]} />
-    <h2>I'm a Neuroscience student, currently based in London, UK.</h2>
-    <Expertise />
-  </div></BaseLayout
->
+  <div class="page-wrapper">
+    <main class="main content">
+      <section class="hero-grid">
+        <div class="hero-text">
+          <div class="eyebrow">welcome to the website</div>
+
+          <h1 class="display-title">
+          
+            <Greeting client:load messages={["hey", "what's up", 'hi', 'hello']} />
+       
+          </h1>
+
+          <p class="lead-text">
+            Neuroscience undergrad, Developer and Entrepreneur.
+            Building at the intersection of AI, tech and business.
+          </p>
+
+          <div class="cta-group">
+            <div class="floating-card">
+              <div class="'card-glow"></div>
+              <img src="/afnaanmoney.jpeg" alt="Afnaan Qasim" class="hero-image" />
+          </div>
+        </div>
+      </section>
+
+      <div class="expertise-section">
+        <Expertise />
+      </div>
+
+      <section class="features-section">
+        <h2 class="section-title">What I Do</h2>
+        <div class="features-grid">
+                    {features.map((feature, index) => (
+            <article class="feature-card" style={`--delay: ${index * 0.1}s`}>
+              <div class="card-number">{String(index + 1).padStart(2, '0')}</div>
+              <h3 class="feature-title">{feature.title}</h3>
+              <p class="feature-subtitle">{feature.subtitle}</p>
+              <p class="feature-text">{feature.description}</p>
+              <div class="card-arrow">→</div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="stats-section">
+        <div class="stats-grid">
+          {stats.map(stat => (
+            <div class="stat-item">
+              <div class="stat-value">{stat.value}</div>
+              <div class="stat-label">{stat.label}</div>
+        </div>
+          ))}
+        </div>
+      </section>
+    </main>
+  </div>
+</BaseLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  /* Using your existing CSS variables from global.css */
+  
+  .page-wrapper {
+    min-height: 100vh;
+    max-width: 100%;
+    margin: 0 -1rem; /* Counteract body padding */
+    padding: 0;
+  }
+
+  .main-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  /* ===== HERO GRID ===== */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+    padding: 4rem 0;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--gradient-accent);
+    color: var(--accent-text-over);
+    border-radius: var(--radius-xl, 2rem);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    width: fit-content;
+    box-shadow: var(--shadow-accent, var(--shadow-md));
+  }
+
+  .display-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    color: var(--gray-0);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0;
+    transition: color var(--theme-transition);
+  }
+
+  .highlight {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .lead-text {
+    font-size: var(--text-lg);
+    color: var(--gray-300);
+    line-height: 1.7;
+    max-width: 600px;
+    transition: color var(--theme-transition);
+  }
+
+  .greeting-wrapper {
+    margin: 1rem 0;
+  }
+
+  /* CTA Buttons */
+  .cta-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: var(--radius-md, 1rem);
+    font-weight: 600;
+    font-size: var(--text-base);
+    cursor: pointer;
+    transition: all var(--theme-transition);
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: var(--gradient-accent);
+    color: var(--accent-text-over);
+    box-shadow: var(--shadow-accent, var(--shadow-md));
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-accent-lg, var(--shadow-lg));
+  }
+
+  .btn-secondary {
+    background: var(--gray-900);
+    color: var(--gray-0);
+    border: 2px solid var(--gray-700);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent-regular);
+    color: var(--accent-regular);
+  }
+
+  :global(:root.theme-dark) .btn-secondary {
+    background: var(--gray-800);
+    border-color: var(--gray-600);
+  }
+
+  /* Hero Visual */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .floating-card {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 1;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .card-glow {
+    position: absolute;
+    inset: -20px;
+    background: var(--gradient-accent);
+    border-radius: var(--radius-lg, 1.5rem);
+    opacity: 0.2;
+    filter: blur(40px);
+    z-index: -1;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-lg, 1.5rem);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* ===== EXPERTISE SECTION ===== */
+  .expertise-section {
+    margin: 6rem 0;
+  }
+
+  /* ===== FEATURES SECTION ===== */
+  .features-section {
+    margin: 8rem 0;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--gray-0);
+    margin-bottom: 4rem;
+    transition: color var(--theme-transition);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-card {
+    position: relative;
+    background: var(--gray-999);
+    padding: 2.5rem;
+    border-radius: var(--radius-lg, 1.5rem);
+    border: 1px solid var(--gray-800);
+    transition: all 0.4s;
+    animation: fadeInUp 0.6s ease-out backwards;
+    animation-delay: var(--delay);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-accent, var(--shadow-lg));
+    border-color: var(--accent-regular);
+  }
+
+  :global(:root.theme-dark) .feature-card {
+    background: var(--gray-900);
+    border-color: var(--gray-700);
+  }
+
+  .card-number {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--gray-800);
+  }
+
+  :global(:root.theme-dark) .card-number {
+    color: var(--gray-700);
+  }
+
+  .feature-title {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--gray-0);
+    margin-bottom: 0.5rem;
+    transition: color var(--theme-transition);
+  }
+
+  .feature-subtitle {
+    font-size: var(--text-sm);
+    color: var(--accent-regular);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  :global(:root.theme-dark) .feature-subtitle {
+    color: var(--accent-dark);
+  }
+
+  .feature-text {
+    color: var(--gray-300);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    transition: color var(--theme-transition);
+  }
+
+  .card-arrow {
+    font-size: 1.5rem;
+    color: var(--accent-regular);
+    transition: transform 0.3s;
+  }
+
+  :global(:root.theme-dark) .card-arrow {
+    color: var(--accent-dark);
+  }
+
+  .feature-card:hover .card-arrow {
+    transform: translateX(8px);
+  }
+
+  /* ===== STATS SECTION ===== */
+  .stats-section {
+    margin: 8rem 0;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 3rem;
+    background: var(--gray-999);
+    border-radius: var(--radius-lg, 1.5rem);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-800);
+  }
+
+  :global(:root.theme-dark) .stats-grid {
+    background: var(--gray-900);
+    border-color: var(--gray-700);
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .stat-value {
+    font-size: 3rem;
+    font-weight: 900;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    color: var(--gray-300);
+    font-weight: 500;
+    transition: color var(--theme-transition);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .hero-visual {
+      order: -1;
+    }
+
+    .floating-card {
+      max-width: 350px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .main-content {
+      padding: 1rem;
+    }
+
+    .hero-grid {
+      padding: 2rem 0;
+      min-height: auto;
+    }
+
+    .display-title {
+      text-align: center;
+    }
+
+    .lead-text {
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .eyebrow {
+      margin: 0 auto;
+    }
+
+    .greeting-wrapper {
+      text-align: center;
+    }
+
+    .cta-group {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 2rem;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .floating-card {
+      animation: none;
+    }
+
+    .feature-card {
+      animation: none;
+    }
+  }
+</style>
+</BaseLayout>
 
 
