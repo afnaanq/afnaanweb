@@ -142,7 +142,6 @@ const pageTitle = "Afnaan Qasim | About";
 
 
 
-
 <style>
   .about-page {
     max-width: 900px;
@@ -260,7 +259,10 @@ const pageTitle = "Afnaan Qasim | About";
     transition: all 0.3s ease;
   }
 
-  /* Education hover removed */
+  .education-item:hover {
+    border-color: var(--accent-regular);
+    box-shadow: var(--shadow-md);
+  }
 
   html.dark .education-item,
   :global(:root.theme-dark) .education-item {
@@ -309,7 +311,11 @@ const pageTitle = "Afnaan Qasim | About";
     transition: all 0.3s ease;
   }
 
-  /* Skill hover removed */
+  .skill-category:hover {
+    border-color: var(--accent-regular);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
 
   html.dark .skill-category,
   :global(:root.theme-dark) .skill-category {

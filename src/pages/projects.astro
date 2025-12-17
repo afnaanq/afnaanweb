@@ -1,15 +1,14 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import BlogPost from '../components/BlogPost.astro';
-const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
-const pageTitle = "Afnaan Qasim | Projects";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "My Work";
 
 const projects = [
   {
-    title: "AI Traffic Signal Optimisation",
-    description: "Engineered a deep reinforcement learning system achieving 14% congestion reduction.",
-    image: "/projects/traffic.jpg",
-    tags: ["Machine Learning", "Python", "PyTorch", "Tech", "Technology"],
+    title: "AI Traffic Optimization",
+    description: "Deep reinforcement learning system achieving 14% congestion reduction",
+    image: "/projects/traffic.jpg", // Replace with your project images
+    tags: ["Machine Learning", "Python", "PyTorch"],
     link: "/projects/traffic-optimization"
   },
   {
@@ -20,35 +19,42 @@ const projects = [
     link: "/projects/london-brownery"
   },
   {
+    title: "Full Stack Dashboard",
+    description: "React and TypeScript application with real-time data analytics",
+    image: "/projects/dashboard.jpg",
+    tags: ["React", "TypeScript", "Node.js"],
+    link: "/projects/dashboard"
+  },
+  {
     title: "Neuroscience Research",
     description: "Computational neuroscience analysis platform for behavioral data",
     image: "/projects/neuro.jpg",
     tags: ["Python", "Data Science", "Research"],
     link: "/projects/neuroscience"
   },
-    {
-    title: "This website you're currently on",
-    description: "React and TypeScript application with real-time data analytics",
-    image: "/projects/dashboard.jpg",
-    tags: ["React", "TypeScript", "Node.js"],
-    link: "/projects/dashboard"
-  },
-    {
+  {
     title: "AI Book Generator",
     description: "LLM-powered application for automated content generation",
     image: "/projects/bookgen.jpg",
     tags: ["AI", "TypeScript", "React"],
     link: "/projects/book-generator"
   },
+  {
+    title: "Database System",
+    description: "Custom SQL database management system with advanced querying",
+    image: "/projects/database.jpg",
+    tags: ["SQL", "Backend", "Systems"],
+    link: "/projects/database"
+  }
 ];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <div class ='projects-page'>
+  <div class="projects-page">
     <div class="hero-section">
-      <h1 class="page-title">My Projects</h1>
+      <h1 class="page-title">My Work</h1>
       <p class="page-subtitle">
-        Here's some of my previous/current projects to get an idea of my experience.
+        See my most recent projects below to get an idea of my past experience.
       </p>
     </div>
 
@@ -74,10 +80,6 @@ const projects = [
     </div>
   </div>
 </BaseLayout>
-
-
-
-
 
 <style>
   .projects-page {
@@ -109,25 +111,21 @@ const projects = [
     line-height: 1.6;
   }
 
-  /* Masonry Grid Layout */
+  /* Masonry Grid Layout - Two Column Staggered */
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-bottom: 4rem;
   }
 
-  /* Alternate heights for masonry effect */
-  .project-card:nth-child(3n+1) {
-    grid-row: span 1;
+  /* Create staggered effect with different heights */
+  .project-card:nth-child(odd) {
+    margin-top: 0;
   }
 
-  .project-card:nth-child(3n+2) {
-    grid-row: span 2;
-  }
-
-  .project-card:nth-child(3n) {
-    grid-row: span 1;
+  .project-card:nth-child(even) {
+    margin-top: 4rem; /* Offset even cards down */
   }
 
   /* Project Card */
@@ -157,7 +155,11 @@ const projects = [
     }
   }
 
-  /* Hover effects removed */
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-accent, var(--shadow-lg));
+    border-color: var(--accent-regular);
+  }
 
   html.dark .project-card,
   :global(:root.theme-dark) .project-card {
@@ -165,17 +167,23 @@ const projects = [
     border-color: var(--gray-700);
   }
 
-  /* Project Image */
+  /* Project Image - Varied heights for interest */
   .project-image {
     position: relative;
     width: 100%;
-    height: 250px;
+    height: 280px;
     overflow: hidden;
     background: linear-gradient(135deg, var(--gradient-stop-1), var(--gradient-stop-2));
   }
 
-  .project-card:nth-child(3n+2) .project-image {
+  /* Some cards have taller images */
+  .project-card:nth-child(2) .project-image,
+  .project-card:nth-child(5) .project-image {
     height: 350px;
+  }
+
+  .project-card:nth-child(3) .project-image {
+    height: 240px;
   }
 
   .project-image img {
@@ -185,7 +193,9 @@ const projects = [
     transition: transform 0.4s ease;
   }
 
-  /* Image zoom removed */
+  .project-card:hover .project-image img {
+    transform: scale(1.05);
+  }
 
   .project-overlay {
     position: absolute;
@@ -199,7 +209,9 @@ const projects = [
     transition: opacity 0.3s ease;
   }
 
-  /* Overlay hover removed */
+  .project-card:hover .project-overlay {
+    opacity: 1;
+  }
 
   /* Project Content */
   .project-content {
@@ -239,7 +251,14 @@ const projects = [
     transition: color 0.3s ease;
   }
 
-  /* Title hover removed */
+  .project-card:hover .project-title {
+    color: var(--accent-regular);
+  }
+
+  html.dark .project-card:hover .project-title,
+  :global(:root.theme-dark) .project-card:hover .project-title {
+    color: var(--accent-dark);
+  }
 
   .project-description {
     font-size: var(--text-base);
@@ -273,7 +292,16 @@ const projects = [
     color: var(--gray-400);
   }
 
-  /* Tag hover removed */
+  .project-card:hover .tag {
+    background: var(--accent-regular);
+    color: var(--accent-text-over);
+  }
+
+  html.dark .project-card:hover .tag,
+  :global(:root.theme-dark) .project-card:hover .tag {
+    background: var(--accent-dark);
+    color: var(--gray-0);
+  }
 
   /* Responsive */
   @media (max-width: 768px) {
@@ -295,15 +323,15 @@ const projects = [
       gap: 1.5rem;
     }
 
-    /* Reset masonry on mobile */
-    .project-card:nth-child(3n+1),
-    .project-card:nth-child(3n+2),
-    .project-card:nth-child(3n) {
-      grid-row: span 1;
+    /* Reset stagger on mobile */
+    .project-card:nth-child(even) {
+      margin-top: 0;
     }
 
     .project-image,
-    .project-card:nth-child(3n+2) .project-image {
+    .project-card:nth-child(2) .project-image,
+    .project-card:nth-child(3) .project-image,
+    .project-card:nth-child(5) .project-image {
       height: 200px;
     }
   }
@@ -316,4 +344,3 @@ const projects = [
   }
 </style>
 </BaseLayout>
-
