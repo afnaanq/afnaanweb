@@ -11,14 +11,19 @@ const features = [
     description:"Deep reinforcement learning for traffic signal optimisation, achieving 14% congestion reduction using neural networks and PyTorch implementations."
   },
   {
-    title:"Software Development",
+    title:"Software Dev",
     subtitle:"Full Stack",
     description:"React, TypeScript, Node.js. Currently learning and building scalable applications with modern frameworks and best practices to produce predictable, maintainable code."
   },
   {
-    title: "Neuroscience Research",
+    title: "Neuroscience",
     subtitle:"Brain & Cognition",
     description:"Final year Neuroscience student at QMUL with year abroad at UCLA, exploring the intersection of neuroscience and technology."
+  },
+  {
+    title: "Co-Founder",
+    subtitle:"The London Brownery",
+    description:"Co-Founded The London Brownery and lead marketing campaigns and partnerships. Established loyal customer base and social media presence whilst winning 2x Great British Taste Awards."
   }
 ];
 const stats = [
@@ -227,19 +232,6 @@ const stats = [
     align-items: center;
   }
 
-  .floating-card {
-    position: relative;
-    width: 100%;
-    max-width: 450px;
-    aspect-ratio: 1;
-    animation: float 6s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
-
   .card-glow {
     position: absolute;
     inset: -20px;
@@ -252,7 +244,7 @@ const stats = [
 
   .hero-image {
     width: 100%;
-    height: 100%;
+    height: 60%;
     object-fit: cover;
     border-radius: var(--radius-lg, 1.5rem);
     box-shadow: var(--shadow-lg);

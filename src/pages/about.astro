@@ -4,82 +4,392 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
 import "../styles/global.css";
-const pageTitle = "About Me";
+const pageTitle = "Afnaan Qasim | About";
 
-const identity = {
-  firstName: "Afnaan",
-  country: "UK",
-  occupation: "Student",
-  hobbies: ["fitness", "basketball", "cars"],
-};
-
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
-
-const happy = true;
-const finished = true;
-const goal = 3;
-
-const skillColour = "crimson";
-const fontWeight = "bold";
-const textCase = "uppercase";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h2>Here's pretty much everything about me</h2>
+  <div class="about-page">
+    <div class="hero-section">
+      <h1 class="page-title">About me</h1>
+      <p class="page-subtitle">
+        Here's pretty much everything about me. Enjoy.
+      </p> 
+    </div>
 
-  <p>
-    I am a 22 year old Neuroscience student at Queen Mary University of London
-  </p>
-  <p>
-    On my year abroad at UCLA, I studied programming. This included Python and
-    C++ and I'm currently learning fullstack development.
-  </p>
-  <p>I thought I'd make a website to practice because.. why not.</p>
+    <div class='profile-section'>
+      <div class="profile-image-container">
+        <img
+        src="/profile.jpg"
+        alt="Afnaan Qasim"
+        class="profile-image"
+        />
+      </div>
+    </div>
 
-  <p>Here are a few facts about me:</p>
-  <ul>
-    <li>My name is {identity.firstName}.</li>
-    <li>
-      I live in {identity.country} and I work as a {identity.occupation}.
-    </li>
-    {
-      identity.hobbies.length >= 2 && (
-        <li>
-          Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
-        </li>
-      )
-    }
-  </ul>
-  <p>My skills are:</p>
-  <ul>
-    {skills.map((skill) => <li class="skill">{skill}</li>)}
-  </ul>
+        <div class="content-sections">
 
-  {happy && <p>I am happy to be learning Astro!</p>}
+      <section class="content-section">
+        <h2 class="section-heading">Background</h2>
+        <div class="section-content">
+          <p>
+            final year neuro n dat
+          </p>
+          <p>
+            tlb n dat
+          </p>
+          <p>
+            something else?
+          </p>
+        </div>
+      </section>
+      
 
-  {finished && <p>I finished this tutorial!</p>}
+      <section class="content-section">
+        <h2 class="section-heading">Education</h2>
+        <div class="section-content">
+          <div class="education-item">
+            <h3>Queen Mary University of London</h3>
+            <p class="education-degree">BSc Neuroscience</p>
+            <p class="education-date">2022 - 2026</p>
+            <p>
+              Focusing on computational neuroscience, cognitive science, and neuroinformatics. 
+              Completed coursework in machine learning, statistics, and experimental design.
+            </p>
+          </div>
 
-  {
-    goal === 3 ? (
-      <p>My goal is to finish in 3 days.</p>
-    ) : (
-      <p>My goal is not 3 days.</p>
-    )
-  }
+          <div class="education-item">
+            <h3>University of California, Los Angeles (UCLA)</h3>
+            <p class="education-degree">Study Abroad Program</p>
+            <p class="education-date">2024 - 2025</p>
+            <p>
+              Specialized in advanced neuroscience research methods and computational modeling. 
+              Collaborated with leading researchers in neuroimaging and behavioral neuroscience.
+            </p>
+          </div>
+        </div>
+      </section>
 
-  <script>
-    import "../scripts/menu.js";
-  </script>
+
+
+      <section class="content-section">
+        <h2 class="section-heading">Skills & Expertise</h2>
+        <div class="section-content">
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Programming</h3>
+              <ul>
+                <li>Python</li>
+                <li>TypeScript / JavaScript</li>
+                <li>C++</li>
+                <li>SQL</li>
+              </ul>
+            </div>
+
+            <div class="skill-category">
+              <h3>Technologies</h3>
+              <ul>
+                <li>React / Astro</li>
+                <li>Node.js</li>
+                <li>PyTorch / TensorFlow</li>
+                <li>PostgreSQL</li>
+              </ul>
+            </div>
+
+            <div class="skill-category">
+              <h3>Data & AI</h3>
+              <ul>
+                <li>Machine Learning</li>
+                <li>Deep Learning</li>
+                <li>Data Analytics</li>
+                <li>Statistical Modeling</li>
+              </ul>
+            </div>
+
+            <div class="skill-category">
+              <h3>Business</h3>
+              <ul>
+                <li>Entrepreneurship</li>
+                <li>Product Management</li>
+                <li>Digital Marketing</li>
+                <li>Operations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="content-section">
+        <h2 class="section-heading">Beyond Work</h2>
+        <div class="section-content">
+          <p>
+            When I'm not coding or studying, you'll find me competing in national-level powerlifting 
+            competitions or mentoring junior developers and entrepreneurs. I previously played National 
+            League basketball and ran a successful barbering business with over 150 regular clients.
+          </p>
+          <p>
+            I'm passionate about bridging the gap between neuroscience and artificial intelligence, 
+            and I enjoy sharing knowledge through mentorship and collaboration. Always open to 
+            discussing new ideas, research opportunities, or potential collaborations.
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
 </BaseLayout>
 
-<style is:global define:vars={{ skillColour, fontWeight, textCase }}>
-  h1 {
-    color: purple;
-    font-size: 4rem;
+
+
+
+
+<style>
+  .about-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
   }
-  .skill {
-    color: var(--skillColour);
-    font-weight: var(--fontWeight);
-    text-transform: var(--textCase);
+
+  /* Hero Section */
+  .hero-section {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+  }
+
+  .page-title {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 900;
+    color: var(--gray-0);
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+  }
+
+  .page-subtitle {
+    font-size: var(--text-lg);
+    color: var(--gray-300);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Profile Section */
+  .profile-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+
+  .profile-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-lg, 1.5rem);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Content Sections */
+  .content-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .content-section {
+    animation: fadeInUp 0.6s ease-out backwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .section-heading {
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    color: var(--gray-0);
+    margin: 0 0 1.5rem 0;
+  }
+
+  .section-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .section-content p {
+    font-size: var(--text-base);
+    color: var(--gray-300);
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  /* Education Items */
+  .education-item {
+    padding: 1.5rem;
+    background: var(--gray-999);
+    border-radius: var(--radius-md, 1rem);
+    border: 1px solid var(--gray-800);
+    transition: all 0.3s ease;
+  }
+
+  /* Education hover removed */
+
+  html.dark .education-item,
+  :global(:root.theme-dark) .education-item {
+    background: var(--gray-900);
+    border-color: var(--gray-700);
+  }
+
+  .education-item h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--gray-0);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .education-degree {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--accent-regular);
+    margin: 0 0 0.25rem 0 !important;
+  }
+
+  html.dark .education-degree,
+  :global(:root.theme-dark) .education-degree {
+    color: var(--accent-dark);
+  }
+
+  .education-date {
+    font-size: var(--text-sm);
+    color: var(--gray-400);
+    margin: 0 0 1rem 0 !important;
+    font-style: italic;
+  }
+
+  /* Skills Grid */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-category {
+    padding: 1.5rem;
+    background: var(--gray-999);
+    border-radius: var(--radius-md, 1rem);
+    border: 1px solid var(--gray-800);
+    transition: all 0.3s ease;
+  }
+
+  /* Skill hover removed */
+
+  html.dark .skill-category,
+  :global(:root.theme-dark) .skill-category {
+    background: var(--gray-900);
+    border-color: var(--gray-700);
+  }
+
+  .skill-category h3 {
+    font-size: var(--text-md);
+    font-weight: 700;
+    color: var(--accent-regular);
+    margin: 0 0 1rem 0;
+  }
+
+  html.dark .skill-category h3,
+  :global(:root.theme-dark) .skill-category h3 {
+    color: var(--accent-dark);
+  }
+
+  .skill-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .skill-category li {
+    font-size: var(--text-sm);
+    color: var(--gray-300);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .skill-category li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--accent-regular);
+  }
+
+  html.dark .skill-category li::before,
+  :global(:root.theme-dark) .skill-category li::before {
+    color: var(--accent-dark);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .about-page {
+      padding: 1rem;
+    }
+
+    .hero-section {
+      margin-bottom: 2rem;
+    }
+
+    .profile-section {
+      margin-bottom: 2rem;
+    }
+
+    .profile-image-container {
+      max-width: 100%;
+    }
+
+    .content-sections {
+      gap: 2.5rem;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .profile-image-container,
+    .content-section {
+      animation: none;
+    }
   }
 </style>
+</BaseLayout>
