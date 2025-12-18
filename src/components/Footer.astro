@@ -1,0 +1,80 @@
+---
+import MessageLogo from "../components/MessageLogo.astro";
+---
+
+<footer class="simple-footer">
+  <div class="footer-wrapper">
+    <h2 class="footer-title">Interested in working together?</h2>
+    <a href="mailto:afnaan.qasim2@gmail.com" class="message-btn"
+      >Send me a message!<MessageLogo /></a
+    >
+  </div>
+</footer>
+
+<style>
+  .simple-footer {
+    background: var(--gray-999);
+    padding: 5rem 2rem;
+    margin-top: 8rem;
+    text-align: center;
+  }
+
+  html.dark .simple-footer,
+  :global(:root.theme-dark) .simple-footer {
+    background: var(--gray-900);
+  }
+
+  .footer-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .footer-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    color: var(--gray-0);
+    margin: 0;
+  }
+
+  .message-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 3rem;
+    background: linear-gradient(135deg, #c561f6, #7611a6);
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(118, 17, 166, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .message-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(118, 17, 166, 0.4);
+    background: linear-gradient(135deg, #d37bff, #7611a6);
+    transition: transform 0.5s ease;
+  }
+
+  .message-btn:hover .send-icon {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 768px) {
+    .simple-footer {
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .message-btn {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+    }
+  }
+</style>

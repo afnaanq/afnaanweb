@@ -7,7 +7,7 @@ const projects = [
   {
     title: "AI Traffic Optimization",
     description: "Deep reinforcement learning system achieving 14% congestion reduction",
-    image: "/projects/traffic.jpg", // Replace with your project images
+    image: "/projects/traffic.jpg", //replace w images
     tags: ["Machine Learning", "Python", "PyTorch"],
     link: "/projects/traffic-optimization"
   },
@@ -89,7 +89,7 @@ const projects = [
     min-height: 100vh;
   }
 
-  /* Hero Section */
+
   .hero-section {
     text-align: left;
     margin-bottom: 4rem;
@@ -111,7 +111,7 @@ const projects = [
     line-height: 1.6;
   }
 
-  /* Masonry Grid Layout - Two Column Staggered */
+
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -119,16 +119,16 @@ const projects = [
     margin-bottom: 4rem;
   }
 
-  /* Create staggered effect with different heights */
+
   .project-card:nth-child(odd) {
     margin-top: 0;
   }
 
   .project-card:nth-child(even) {
-    margin-top: 4rem; /* Offset even cards down */
+    margin-top: 4rem; 
   }
 
-  /* Project Card */
+ 
   .project-card {
     position: relative;
     background: var(--gray-999);
@@ -167,7 +167,6 @@ const projects = [
     border-color: var(--gray-700);
   }
 
-  /* Project Image - Varied heights for interest */
   .project-image {
     position: relative;
     width: 100%;
@@ -176,7 +175,6 @@ const projects = [
     background: linear-gradient(135deg, var(--gradient-stop-1), var(--gradient-stop-2));
   }
 
-  /* Some cards have taller images */
   .project-card:nth-child(2) .project-image,
   .project-card:nth-child(5) .project-image {
     height: 350px;
@@ -213,7 +211,7 @@ const projects = [
     opacity: 1;
   }
 
-  /* Project Content */
+  
   .project-content {
     padding: 2rem;
     flex: 1;
@@ -268,7 +266,7 @@ const projects = [
     flex: 1;
   }
 
-  /* Tags */
+ 
   .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -303,7 +301,7 @@ const projects = [
     color: var(--gray-0);
   }
 
-  /* Responsive */
+
   @media (max-width: 768px) {
     .projects-page {
       padding: 1rem;
@@ -323,7 +321,7 @@ const projects = [
       gap: 1.5rem;
     }
 
-    /* Reset stagger on mobile */
+
     .project-card:nth-child(even) {
       margin-top: 0;
     }
@@ -336,7 +334,7 @@ const projects = [
     }
   }
 
-  /* Reduced motion */
+
   @media (prefers-reduced-motion: reduce) {
     .project-card {
       animation: none;
