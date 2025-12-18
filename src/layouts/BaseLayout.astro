@@ -12,6 +12,16 @@ const {pageTitle} = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <script is:inline>
+      // This runs immediately, before page renders
+      const theme = localStorage.getItem('theme');
+      const isDark = theme === 'dark' || 
+        (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
   </head>
   <body>
 	<Header/>
