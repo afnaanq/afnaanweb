@@ -30,11 +30,32 @@ const features = [
       "Co-Founded The London Brownery and lead marketing campaigns and partnerships. Established loyal customer base and social media presence whilst winning 2x Great British Taste Awards.",
   },
 ];
-const stats = [
-  { value: "4M+", label: "Content Views" },
-  { value: "150+", label: "Regular Clients" },
-  { value: "2", label: "Award Wins" },
-  { value: "2", label: "Businesses Founded" },
+const skills = [
+  { 
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </svg>`,
+    title: "Collaboration",
+    description: "Leading cross-functional teams and building strong partnerships across technical and business domains."
+  },
+  { 
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>`,
+    title: "Communication",
+    description: "Translating complex technical concepts into clear insights for diverse audiences and stakeholders."
+  },
+  { 
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="m9 12 2 2 4-4"/>
+    </svg>`,
+    title: "Problem Solving",
+    description: "Analytical approach combining neuroscience insights with technical expertise to solve complex challenges."
+  }
 ];
 ---
 
@@ -89,7 +110,6 @@ const stats = [
                 <h3 class="feature-title">{feature.title}</h3>
                 <p class="feature-subtitle">{feature.subtitle}</p>
                 <p class="feature-text">{feature.description}</p>
-                <div class="card-arrow">→</div>
               </article>
             ))
           }
@@ -97,16 +117,16 @@ const stats = [
       </section>
 
       
-      <section class="stats-section">
-        <div class="stats-grid">
-          {
-            stats.map((stat) => (
-              <div class="stat-item">
-                <div class="stat-value">{stat.value}</div>
-                <div class="stat-label">{stat.label}</div>
-              </div>
-            ))
-          }
+      <section class="skills-section scroll-fade">
+        <h2 class="section-title">Core Strengths</h2>
+        <div class="skills-grid">
+          {skills.map((skill) => (
+            <div class="skill-card">
+              <div class="skill-icon" set:html={skill.icon} />
+              <h3 class="skill-title">{skill.title}</h3>
+              <p class="skill-description">{skill.description}</p>
+            </div>
+          ))}
         </div>
       </section>
     </main>
@@ -342,48 +362,75 @@ const stats = [
   }
 
   
-  .stats-section {
-    margin: 8rem 0;
-  }
+.skills-section {
+  margin: 8rem 0;
+}
 
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    padding: 3rem;
-    background: var(--gray-999);
-    border-radius: var(--radius-lg, 1.5rem);
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--gray-800);
-  }
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 3rem;
+  background: var(--gray-999);
+  border-radius: var(--radius-lg, 1.5rem);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-800);
+}
 
-  html.dark .stats-grid,
-  :global(:root.theme-dark) .stats-grid {
-    background: var(--gray-900);
-    border-color: var(--gray-700);
-  }
+html.dark .skills-grid {
+  background: var(--gray-900);
+  border-color: var(--gray-700);
+}
 
-  .stat-item {
-    text-align: center;
-    padding: 1.5rem;
-  }
+.skill-card {
+  text-align: center;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
 
-  .stat-value {
-    font-size: 3rem;
-    font-weight: 900;
-    background: var(--gradient-accent);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 0.5rem;
-  }
+.skill-card:hover {
+  transform: translateY(-4px);
+}
 
-  .stat-label {
-    color: var(--gray-300);
-    font-weight: 500;
-    transition: color var(--theme-transition);
-  }
+.skill-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1.5rem;
+  color: var(--accent-regular);
+  transition: color 0.3s ease;
+}
 
+html.dark .skill-icon {
+  color: var(--accent-dark);
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.skill-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--gray-0);
+  margin-bottom: 1rem;
+  transition: color var(--theme-transition);
+}
+
+.skill-description {
+  font-size: var(--text-sm);
+  color: var(--gray-300);
+  line-height: 1.6;
+  transition: color var(--theme-transition);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+}
   
   @media (max-width: 1024px) {
     .hero-grid {
