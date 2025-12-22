@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global variables */
+
 :root {
-	/* Colors */
+	
 	--gray-0: #090b11;
 	--gray-50: #141925;
 	--gray-100: #283044;
@@ -29,7 +29,7 @@
 
 	--link-color: var(--accent-regular);
 
-	/* Gradients */
+	
 	--gradient-stop-1: var(--accent-light);
 	--gradient-stop-2: var(--accent-regular);
 	--gradient-stop-3: var(--accent-dark);
@@ -48,11 +48,11 @@
 	);
 	--gradient-stroke: linear-gradient(180deg, var(--gray-900), var(--gray-700));
 
-	/* New: Modern background gradient */
+	
 	--gradient-bg: linear-gradient(180deg, #faf5ff 0%, #f0f9ff 50%, #f3f4f7 100%);
 	--gradient-bg-dark: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
 
-	/* Shadows */
+	
 	--shadow-sm:
 		0px 6px 3px rgba(9, 11, 17, 0.01), 0px 4px 2px rgba(9, 11, 17, 0.01),
 		0px 2px 2px rgba(9, 11, 17, 0.02), 0px 0px 1px rgba(9, 11, 17, 0.03);
@@ -63,11 +63,11 @@
 		0px 62px 25px rgba(9, 11, 17, 0.01), 0px 35px 21px rgba(9, 11, 17, 0.05),
 		0px 16px 16px rgba(9, 11, 17, 0.1), 0px 4px 9px rgba(9, 11, 17, 0.12);
 	
-	/* New: Colored shadows for cards */
+	
 	--shadow-accent: 0 10px 40px hsla(280, 89%, 67%, 0.15);
 	--shadow-accent-lg: 0 20px 60px hsla(280, 89%, 67%, 0.25);
 
-	/* Text Sizes */
+	
 	--text-sm: 0.875rem;
 	--text-base: 1rem;
 	--text-md: 1.125rem;
@@ -78,17 +78,17 @@
 	--text-4xl: 3.5rem;
 	--text-5xl: 4.5rem;
 
-	/* Fonts */
+	
 	--font-system:
 		system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
 		"Open Sans", "Helvetica Neue", sans-serif;
 	--font-body: "Public Sans", var(--font-system);
 	--font-brand: Rubik, var(--font-system);
 
-	/* Transitions */
+	
 	--theme-transition: 0.2s ease-in-out;
 	
-	/* New: Border radius */
+	
 	--radius-sm: 0.5rem;
 	--radius-md: 1rem;
 	--radius-lg: 1.5rem;
@@ -143,12 +143,12 @@ html.dark {
 		0px 62px 25px rgba(255, 255, 255, 0.01), 0px 35px 21px rgba(255, 255, 255, 0.05),
 		0px 16px 16px rgba(255, 255, 255, 0.1), 0px 4px 9px rgba(255, 255, 255, 0.12);
 	
-	/* Colored shadows for dark mode */
+	
 	--shadow-accent: 0 10px 40px hsla(280, 89%, 67%, 0.3);
 	--shadow-accent-lg: 0 20px 60px hsla(280, 89%, 67%, 0.4);
 }
 
-/* Base styles */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -169,12 +169,10 @@ html {
 body {
 	margin: 0 auto;
 	width: 100%;
-	max-width: 80ch;
 	padding: 1rem;
 	line-height: 1.5;
 }
 
-/* Typography */
 h1 {
 	margin: 1rem 0;
 	font-size: var(--text-4xl);
@@ -209,7 +207,7 @@ p {
 	color: var(--gray-300);
 }
 
-/* Links */
+
 a {
 	color: var(--link-color);
 	text-decoration: none;
@@ -220,13 +218,13 @@ a:hover {
 	color: var(--accent-light);
 }
 
-/* Selection */
+
 ::selection {
 	background-color: var(--accent-regular);
 	color: var(--accent-text-over);
 }
 
-/* Scrollbar styling */
+
 ::-webkit-scrollbar {
 	width: 12px;
 }
@@ -244,7 +242,7 @@ a:hover {
 	background: var(--gray-500);
 }
 
-/* Nav styles - Updated for modern look */
+
 .menu {
 	background-color: var(--accent-regular);
 	border: none;
@@ -327,7 +325,7 @@ a:hover {
 	}
 }
 
-/* Dark mode overrides */
+
 html.dark,
 :root.theme-dark {
 	background: var(--gradient-bg);
@@ -356,7 +354,7 @@ html.dark a,
 	color: var(--link-color);
 }
 
-/* Utility classes for modern design */
+
 .card {
 	background: var(--gray-999);
 	border-radius: var(--radius-lg);
@@ -436,13 +434,14 @@ html.dark .btn-secondary,
 	border-color: var(--gray-600);
 }
 
-/* Focus styles for accessibility */
+
+
 *:focus-visible {
 	outline: 2px solid var(--accent-regular);
 	outline-offset: 2px;
 }
 
-/* Animations */
+
 @keyframes fadeIn {
 	from {
 		opacity: 0;
@@ -472,7 +471,7 @@ html.dark .btn-secondary,
 	}
 }
 
-/* Reduced motion */
+
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,
@@ -484,7 +483,7 @@ html.dark .btn-secondary,
 	}
 }
 
-/* Print styles */
+
 @media print {
 	body {
 		background: white;

@@ -1,0 +1,200 @@
+---
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
+  { label: "About", href: "/about" },
+];
+---
+
+<button class="menu-button" id="menu-button" aria-label="Menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<div class="menu-overlay" id="menu-overlay">
+  <!-- Close Button -->
+  <button class="close-button" id="close-button" aria-label="Close menu">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 6L6 18M6 6l12 12"/>
+    </svg>
+  </button>
+
+  <nav class="menu-nav">
+    {navItems.map((item) => (
+      <a href={item.href} class="menu-link">{item.label}</a>
+    ))}
+  </nav>
+</div>
+
+<script>
+  function initMenu() {
+    const button = document.getElementById('menu-button');
+    const overlay = document.getElementById('menu-overlay');
+    const closeButton = document.getElementById('close-button');
+    
+    if (!button || !overlay || !closeButton) return;
+
+    const openMenu = () => {
+      button.classList.add('active');
+      overlay.classList.add('active');
+      document.body.classList.add('menu-open');
+    };
+
+    const closeMenu = () => {
+      button.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    };
+
+    // Open menu
+    button.addEventListener('click', openMenu);
+
+    // Close button
+    closeButton.addEventListener('click', closeMenu);
+
+    // Close when clicking a link
+    overlay.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close when clicking overlay background
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        closeMenu();
+      }
+    });
+  }
+
+  initMenu();
+  document.addEventListener('astro:page-load', initMenu);
+</script>
+
+<style>
+  /* Menu Button (Hamburger) */
+  .menu-button {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .menu-button span {
+    width: 24px;
+    height: 3px;
+    background: var(--gray-0);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .menu-button.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+  }
+
+  .menu-button.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-button.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  /* Menu Overlay */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gray-999);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  html.dark .menu-overlay {
+    background: var(--gray-900);
+  }
+
+  .menu-overlay.active {
+    transform: translateX(0);
+  }
+
+  /* Close Button */
+  .close-button {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 40px;
+    height: 40px;
+    background: var(--gray-800);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  html.dark .close-button {
+    background: var(--gray-700);
+  }
+
+  .close-button:hover {
+    background: var(--accent-regular);
+    transform: rotate(90deg);
+  }
+
+  html.dark .close-button:hover {
+    background: var(--accent-dark);
+  }
+
+  .close-button svg {
+    width: 24px;
+    height: 24px;
+    color: var(--gray-0);
+  }
+
+  .menu-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .menu-link {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gray-0);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .menu-link:hover {
+    color: var(--accent-regular);
+  }
+
+  html.dark .menu-link:hover {
+    color: var(--accent-dark);
+  }
+
+  /* Show on mobile */
+  @media (max-width: 768px) {
+    .menu-button {
+      display: flex;
+    }
+  }
+
+  /* Prevent body scroll when menu open */
+  :global(body.menu-open) {
+    overflow: hidden;
+  }
+</style>

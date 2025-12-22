@@ -6,46 +6,36 @@ const pageTitle = "Afnaan Qasim | Projects";
 const projects = [
   {
     title: "AI Traffic Optimization",
-    description: "Deep reinforcement learning system achieving 14% congestion reduction",
+    description:
+      "Deep reinforcement learning system achieving 14% congestion reduction",
     image: "/projects/traffic.jpg", //replace w images
     tags: ["Machine Learning", "Python", "PyTorch"],
-    link: "/projects/traffic-optimization"
+    link: "/projects/traffic-optimization",
   },
   {
     title: "The London Brownery",
-    description: "Award-winning brownie business with 4M+ content views and Great Taste Awards",
+    description:
+      "Award-winning brownie business with 4M+ content views and Great Taste Awards",
     image: "/projects/brownery.jpg",
     tags: ["Business", "Marketing", "E-commerce"],
-    link: "/projects/london-brownery"
-  },
-  {
-    title: "Full Stack Dashboard",
-    description: "React and TypeScript application with real-time data analytics",
-    image: "/projects/dashboard.jpg",
-    tags: ["React", "TypeScript", "Node.js"],
-    link: "/projects/dashboard"
+    link: "https://thelondonbrownery.com/",
   },
   {
     title: "Neuroscience Research",
-    description: "Computational neuroscience analysis platform for behavioral data",
+    description:
+      "Computational neuroscience analysis platform for behavioral data",
     image: "/projects/neuro.jpg",
     tags: ["Python", "Data Science", "Research"],
-    link: "/projects/neuroscience"
+    link: "/projects/neuroscience",
   },
   {
-    title: "AI Book Generator",
-    description: "LLM-powered application for automated content generation",
+    title: "In progress 🤫",
+    description:
+      "Current project creating an LLM-powered application for automated content generation",
     image: "/projects/bookgen.jpg",
     tags: ["AI", "TypeScript", "React"],
-    link: "/projects/book-generator"
+    link: "/projects/book-generator",
   },
-  {
-    title: "Database System",
-    description: "Custom SQL database management system with advanced querying",
-    image: "/projects/database.jpg",
-    tags: ["SQL", "Backend", "Systems"],
-    link: "/projects/database"
-  }
 ];
 ---
 
@@ -59,24 +49,30 @@ const projects = [
     </div>
 
     <div class="projects-grid">
-      {projects.map((project, index) => (
-        <a href={project.link} class="project-card" style={`--delay: ${index * 0.1}s`}>
-          <div class="project-image">
-            <img src={project.image} alt={project.title} />
-            <div class="project-overlay"></div>
-          </div>
-          <div class="project-content">
-            <span class="project-badge">{project.title}</span>
-            <h3 class="project-title">{project.title}</h3>
-            <p class="project-description">{project.description}</p>
-            <div class="project-tags">
-              {project.tags.map(tag => (
-                <span class="tag">{tag}</span>
-              ))}
+      {
+        projects.map((project, index) => (
+          <a
+            href={project.link}
+            class="project-card"
+            style={`--delay: ${index * 0.1}s`}
+          >
+            <div class="project-image">
+              <img src={project.image} alt={project.title} />
+              <div class="project-overlay" />
             </div>
-          </div>
-        </a>
-      ))}
+            <div class="project-content">
+              <span class="project-badge">{project.title}</span>
+              <h3 class="project-title">{project.title}</h3>
+              <p class="project-description">{project.description}</p>
+              <div class="project-tags">
+                {project.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </a>
+        ))
+      }
     </div>
   </div>
 </BaseLayout>
@@ -88,7 +84,6 @@ const projects = [
     padding: 2rem;
     min-height: 100vh;
   }
-
 
   .hero-section {
     text-align: left;
@@ -111,7 +106,6 @@ const projects = [
     line-height: 1.6;
   }
 
-
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -119,16 +113,14 @@ const projects = [
     margin-bottom: 4rem;
   }
 
-
   .project-card:nth-child(odd) {
     margin-top: 0;
   }
 
   .project-card:nth-child(even) {
-    margin-top: 4rem; 
+    margin-top: 4rem;
   }
 
- 
   .project-card {
     position: relative;
     background: var(--gray-999);
@@ -172,7 +164,11 @@ const projects = [
     width: 100%;
     height: 280px;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--gradient-stop-1), var(--gradient-stop-2));
+    background: linear-gradient(
+      135deg,
+      var(--gradient-stop-1),
+      var(--gradient-stop-2)
+    );
   }
 
   .project-card:nth-child(2) .project-image,
@@ -211,7 +207,6 @@ const projects = [
     opacity: 1;
   }
 
-  
   .project-content {
     padding: 2rem;
     flex: 1;
@@ -266,7 +261,6 @@ const projects = [
     flex: 1;
   }
 
- 
   .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -301,7 +295,6 @@ const projects = [
     color: var(--gray-0);
   }
 
-
   @media (max-width: 768px) {
     .projects-page {
       padding: 1rem;
@@ -321,7 +314,6 @@ const projects = [
       gap: 1.5rem;
     }
 
-
     .project-card:nth-child(even) {
       margin-top: 0;
     }
@@ -334,11 +326,9 @@ const projects = [
     }
   }
 
-
   @media (prefers-reduced-motion: reduce) {
     .project-card {
       animation: none;
     }
   }
 </style>
-</BaseLayout>
