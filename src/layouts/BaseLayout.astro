@@ -1,9 +1,9 @@
 ---
-import Header from '../components/Header.astro';
-import Navigation from '../components/Navigation.astro';
-import '../styles/global.css';
-import Footer from '../components/Footer.astro'
-const {pageTitle} = Astro.props;
+import Header from "../components/Header.astro";
+import Navigation from "../components/Navigation.astro";
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+const { pageTitle } = Astro.props;
 ---
 
 <html lang="en">
@@ -15,22 +15,22 @@ const {pageTitle} = Astro.props;
     <title>{pageTitle}</title>
 
     <script is:inline>
-      const theme = localStorage.getItem('theme');
-      const isDark = theme === 'dark' || 
-        (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      
+      const theme = localStorage.getItem("theme");
+      const isDark =
+        theme === "dark" ||
+        (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
       if (isDark) {
-        document.documentElement.classList.add('dark');
+        document.documentElement.classList.add("dark");
       }
     </script>
-
   </head>
   <body>
-	<Header/>
+    <Header />
     <slot />
-	<script>
-		import "../scripts/menu.js";
-  </script>
-  <Footer/>
+    <script>
+      import "../scripts/menu.js";
+    </script>
+    <Footer />
   </body>
 </html>
