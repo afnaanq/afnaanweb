@@ -5,10 +5,10 @@ const pageTitle = "Afnaan Qasim | Projects";
 
 const projects = [
   {
-    title: "AI Traffic Optimization",
+    title: "AI Traffic Optimisation",
     description:
       "Deep reinforcement learning system achieving 14% congestion reduction",
-    image: "/AITrafficweb.webp", //replace w images
+    image: "/AITrafficweb.webp", 
     tags: ["Machine Learning", "Python", "PyTorch"],
     link: "/posts/post-1",
   },
@@ -23,7 +23,7 @@ const projects = [
   {
     title: "Neuroscience Research",
     description:
-      "Computational neuroscience analysis platform for behavioral data",
+      "Some of the more interesting coursework I've done during my undergrad",
     image: "/brainpic.jpg",
     tags: ["Experiments", "Data Analysis", "Research"],
     link: "/posts/post-2",
@@ -34,7 +34,7 @@ const projects = [
       "Current project creating an LLM-powered application for automated content generation",
     image: "/thinkemoji.jpg",
     tags: ["AI", "TypeScript", "React"],
-    link: "/projects/book-generator",
+    link: "/posts/post-3",
   },
 ];
 ---
@@ -52,7 +52,7 @@ const projects = [
       {
         projects.map((project, index) => (
           <a
-            target="_blank"
+            target={project.title === "The London Brownery" ? "_blank" : undefined}
             href={project.link}
             class="project-card"
             style={`--delay: ${index * 0.1}s`}

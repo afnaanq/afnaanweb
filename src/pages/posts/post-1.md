@@ -1,15 +1,16 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'Deep Reinforcement Learning for Traffic Signal Control'
-pubDate: 2025-06-01
-description: 'Optimizing urban traffic flow using Deep Q-Networks (DQN) in CityFlow simulation - reducing congestion through intelligent signal control'
-author: 'Afnaan Qasim'
+title: "Deep Reinforcement Learning for Traffic Signal Control"
+pubDate: 2025-12-25
+description: "Optimizing urban traffic flow using Deep Q-Networks (DQN) in CityFlow simulation - reducing congestion through intelligent signal control"
+author: "Afnaan Qasim"
 image:
-    url: ''
-    alt: ''
+  url: ""
+  alt: ""
 tags: ["Machine Learning", "Python", "PyTorch", "Reinforcement Learning"]
 ---
 
+<div class='lg:max-w-prose mx-auto'>
 <div class="project-hero">
   <div class="hero-header">
     <a href="/projects" class="back-link">← Work</a>
@@ -22,7 +23,7 @@ tags: ["Machine Learning", "Python", "PyTorch", "Reinforcement Learning"]
   </div>
   
   <p class="hero-description">
-    Developed a responsive traffic management system using Deep Q-Networks to dynamically optimise traffic signal timing in real-time simulations, successfully clearing all generated traffic in 3,600 seconds compared to 4,200 seconds using traditional control systems.
+    We thought traffic lights in America weren't smart, so we tried to make them think for once.
   </p>
 </div>
 
@@ -39,6 +40,7 @@ Our team recognised both the societal impact and the gap in current solutions, s
 We configured a realistic traffic environment using **CityFlow**, a microscopic traffic simulator, where we defined intersection layouts, traffic routes, and vehicle behavior. The simulation was packaged in Docker to ensure reproducibility and proper integration with CityFlow's controlling API.
 
 The environment features:
+
 - Defined incoming lanes as state features
 - Discrete action space of 9 traffic light phases (selected for accident-free operation)
 - 1×1 intersection with 3,600 seconds (one hour) of real-time traffic data
@@ -48,21 +50,25 @@ The environment features:
 We implemented a DQN agent that approximates the Q-function using a neural network:
 
 **Q-Value Computation:**
+
 ```
 Q(s, a) = r + γ max Q(s', a')
 ```
 
 Where:
+
 - `r` is the immediate reward for current state and action
 - `max Q(s', a')` is the estimated maximum future reward from the next state
 - `γ = 0.99` is the discount factor for future rewards
 
 **Network Components:**
+
 - **Q-Network**: Standard feedforward architecture with two fully connected layers and ReLU activations
 - **Target Network**: Separate network providing stable Q-value targets during training
 - **Experience Replay Buffer**: Stores transitions `(s, a, r, s', d)` where `d` indicates episode termination
 
 **Key Hyperparameters:**
+
 - Learning rate: 0.001
 - Batch size: 64
 - Discount factor (γ): 0.99
@@ -75,9 +81,11 @@ We experimented with three reward strategies:
 
 **1. Pressure-Based Reward**
 Minimises traffic congestion by penalising queue imbalances:
+
 ```
 P = Σ (q_l - Σ q_l')
 ```
+
 Where `q_l` is the queue length on incoming lane `l`, and `q_l'` represents successor lanes.
 
 **Advantages:** Encourages realistic, responsive control and minimises incoming/outgoing traffic differences  
@@ -85,6 +93,7 @@ Where `q_l` is the queue length on incoming lane `l`, and `q_l'` represents succ
 
 **2. Count-Based Reward**
 Directly penalises total waiting vehicles:
+
 ```
 R_count = -Σ q_l
 ```
@@ -94,6 +103,7 @@ R_count = -Σ q_l
 
 **3. Combined Count + Pressure (Our Final Approach)**
 Balances immediate queue reduction with long-term flow management:
+
 ```
 R = α · R_count + (1 - α) · R_pressure, with α = 0.5
 ```
@@ -115,6 +125,7 @@ The DQN training loop follows these steps:
 3. Record episode metrics (total reward, duration)
 
 **Experience Replay Benefits:**
+
 - Reduces computational cost by learning from sampled data
 - Breaks temporal correlations by randomly sampling experiences
 - Exposes network to diverse contexts rather than sequential niche experiences
@@ -124,6 +135,7 @@ The DQN training loop follows these steps:
 Our DQN agent successfully learned effective policies for traffic optimisation:
 
 **Performance Metrics:**
+
 - Successfully cleared all generated traffic in **3,600 seconds** (same as generation time)
 - Baseline control system required **4,200 seconds** to clear the same traffic
 - **~14% improvement** in traffic clearance time
@@ -133,21 +145,26 @@ Both Count-Based and Combined Pressure-Count reward functions demonstrated stron
 ## Technical Implementation
 
 **Technology Stack:**
+
 - **CityFlow**: Traffic simulation environment
 - **PyTorch**: Deep learning framework for DQN
 - **Docker**: Environment containerisation
 - **Python**: Primary development language
 
 **State Representation:**
+
 - Vehicle counts per lane
 - Queue lengths
 - Optional enhancements: wait times, time since last phase change (not fully utilised in final version)
 
 **Action Space:**
+
 - 9 discrete traffic light phases ensuring accident-free operation
 - Phases selected based on safety constraints and real-world feasibility
 
 **GitHub Repository:** [Traffic_RL2](https://github.com/afnaanq/traffic-rl)
+
+</div>
 
 <style>
 .project-hero {

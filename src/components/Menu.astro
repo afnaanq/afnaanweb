@@ -13,7 +13,7 @@ const navItems = [
 </button>
 
 <div class="menu-overlay" id="menu-overlay">
-  <!-- Close Button -->
+  
   <button class="close-button" id="close-button" aria-label="Close menu">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -57,18 +57,18 @@ const navItems = [
       document.body.classList.remove("menu-open");
     };
 
-    // Open menu
+    
     button.addEventListener("click", openMenu);
 
-    // Close button
+    
     closeButton.addEventListener("click", closeMenu);
 
-    // Close when clicking a link
+    // close when link clicked
     overlay.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", closeMenu);
     });
 
-    // Close when clicking overlay background
+    // close when click overlay
     overlay.addEventListener("click", (e) => {
       if (e.target === overlay) {
         closeMenu();
@@ -81,7 +81,7 @@ const navItems = [
 </script>
 
 <style>
-  /* Menu Button (Hamburger) */
+
   .menu-button {
     display: none;
     flex-direction: column;
@@ -112,7 +112,7 @@ const navItems = [
     transform: rotate(-45deg) translate(7px, -7px);
   }
 
-  /* Menu Overlay */
+
   .menu-overlay {
     position: fixed;
     top: 0;
@@ -137,7 +137,7 @@ const navItems = [
     transform: translateX(0);
   }
 
-  /* Close Button */
+
   .close-button {
     position: absolute;
     top: 2rem;
@@ -196,14 +196,14 @@ const navItems = [
     color: var(--accent-dark);
   }
 
-  /* Show on mobile */
+
   @media (max-width: 768px) {
     .menu-button {
       display: flex;
     }
   }
 
-  /* Prevent body scroll when menu open */
+
   :global(body.menu-open) {
     overflow: hidden;
   }

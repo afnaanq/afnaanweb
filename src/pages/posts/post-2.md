@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "Neuroscience Research Portfolio"
-pubDate: 2024-03-15
+pubDate: 2025-12-25
 description: "Collection of neuroscience research projects spanning EEG analysis, cardiovascular physiology, and experimental design in exercise science"
 author: "Afnaan Qasim"
 image:
@@ -10,6 +10,7 @@ image:
 tags: ["Neuroscience", "Physiology", "Research", "Data Analysis"]
 ---
 
+<div class='lg:max-w-prose mx-auto'>
 <div class="project-hero">
   <div class="hero-header">
     <a href="/projects" class="back-link">← Work</a>
@@ -22,13 +23,15 @@ tags: ["Neuroscience", "Physiology", "Research", "Data Analysis"]
   </div>
   
   <p class="hero-description">
-    A collection of research projects demonstrating competencies in neurophysiology, experimental design, statistical analysis, and biomedical measurement techniques across cognitive neuroscience and cardiovascular physiology.
+    A collection of projects I've produced over the years.
   </p>
 </div>
 
 ## EEG Analysis of Alpha and Beta Brainwave Dynamics
 
-Conducted an electroencephalography (EEG) study at Queen Mary University investigating how alpha waves (8-13 Hz) and beta waves (13-30 Hz) change between eyes-open and eyes-closed states. Using the International 10-20 electrode placement system and PowerLab equipment, I measured brainwave amplitude and frequency across different conscious states. The hypothesis predicted increased alpha activity during eyes-closed (relaxed state) and decreased beta activity, but statistical analysis using two-tailed T-tests revealed no significant differences between states. This unexpected outcome highlighted the importance of individual variability in neuroscience research and demonstrated that conscious state transitions are more complex than simple frequency band shifts. The project provided hands-on experience with EEG signal acquisition, artifact control, electrode placement precision, and rigorous statistical validation - reinforcing that negative results are scientifically valuable when they inform future experimental designs.
+Conducted an electroencephalography (EEG) study at Queen Mary University investigating how alpha waves (8-13 Hz) and beta waves (13-30 Hz) change between eyes-open and eyes-closed states. Using the International 10-20 electrode placement system and PowerLab equipment, I measured brainwave amplitude and frequency across different conscious states. The hypothesis predicted increased alpha activity during eyes-closed (relaxed state) and decreased beta activity, but statistical analysis using two-tailed T-tests revealed no significant differences between states.
+
+This unexpected outcome highlighted the importance of individual variability in neuroscience research and demonstrated that conscious state transitions are more complex than simple frequency band shifts. The project provided hands-on experience with EEG signal acquisition, artifact control, electrode placement precision, and rigorous statistical validation - reinforcing that negative results are scientifically valuable when they inform future experimental designs.
 
 ## Control of Breathing: Diaphragmatic Effects on Cardiac Axis
 
@@ -36,11 +39,17 @@ Investigated how diaphragmatic breathing patterns influence the mean electrical 
 
 ## Calisthenics vs Resistance Training: Balance and Proprioception Study Design
 
-Designed a comprehensive 8-week experimental protocol comparing calisthenics training (bodyweight exercises) to traditional resistance training (machine/barbell exercises) for their effects on balance and proprioception in young, trained individuals. The study design included 30 participants split into two groups, with matched training intensity (RPE 8), volume (3 sets), and rest periods (90 seconds) to isolate the training modality as the independent variable. Primary outcomes included validated assessment tools: single-leg stance test, Berg Balance Scale for balance, and the Active Movement Extent Discrimination Apparatus (AMEDA) for proprioception. Secondary measures tracked strength and hypertrophy to ensure neither protocol compromised muscle development. The design incorporated rigorous controls including 48-hour pre-testing activity restrictions, dietary tracking via MyFitnessPal, and paired T-tests for statistical analysis. The clinical rationale connected to fall prevention in elderly populations, where balance deterioration contributes to 328 indoor falls per 1,000 person-years. This research proposal demonstrated competencies in experimental design, exercise physiology, statistical methodology, and integration of biomechanical theory with practical health applications.
+Designed a comprehensive 8-week experimental protocol comparing calisthenics training (bodyweight exercises) to traditional resistance training (machine/barbell exercises) for their effects on balance and proprioception in young, trained individuals. The study design included 30 participants split into two groups, with matched training intensity (RPE 8), volume (3 sets), and rest periods (90 seconds) to isolate the training modality as the independent variable. Primary outcomes included validated assessment tools: single-leg stance test, Berg Balance Scale for balance, and the Active Movement Extent Discrimination Apparatus (AMEDA) for proprioception. Secondary measures tracked strength and hypertrophy to ensure neither protocol compromised muscle development.
+
+The design incorporated rigorous controls including 48-hour pre-testing activity restrictions, dietary tracking via MyFitnessPal, and paired T-tests for statistical analysis. The clinical rationale connected to fall prevention in elderly populations, where balance deterioration contributes to 328 indoor falls per 1,000 person-years. This research proposal demonstrated competencies in experimental design, exercise physiology, statistical methodology, and integration of biomechanical theory with practical health applications.
 
 ## Neural Plasticity and Auditory Perception (Literature Review)
 
-Contributed to a comprehensive review examining the relationship between auditory neurophysiology and musical perception, focusing on how the auditory system encodes and interprets sound. The work explored neuroplasticity and sensory compensation, analysing evidence that when the visual cortex is not fully developed (as in congenitally blind individuals), other modality-specific areas like auditory processing regions can expand their functionality. We examined research on auditory nerve fiber populations, characterizing how different spontaneous firing rates correlate with frequency selectivity and threshold properties. The review detailed temporal encoding mechanisms including phase-locking (where action potentials align with specific waveform phases) and interspike interval histograms that reveal stable temporal patterns contributing to vowel identity encoding. We analysed the psychoacoustic concepts of musical consonance and dissonance, tracing theories from Pythagoras to Helmholtz's proposal that dissonance results from roughness perception. The critical band concept explained why minor thirds sound dissonant in bass registers but consonant in higher octaves. This project demonstrated ability to synthesise complex neuroscience literature, integrate historical and contemporary research perspectives, and explain how neural mechanisms produce perceptual experiences.
+Contributed to a comprehensive review examining the relationship between auditory neurophysiology and musical perception, focusing on how the auditory system encodes and interprets sound. The work explored neuroplasticity and sensory compensation, analysing evidence that when the visual cortex is not fully developed (as in congenitally blind individuals), other modality-specific areas like auditory processing regions can expand their functionality. We examined research on auditory nerve fiber populations, characterizing how different spontaneous firing rates correlate with frequency selectivity and threshold properties.
+
+The review detailed temporal encoding mechanisms including phase-locking (where action potentials align with specific waveform phases) and interspike interval histograms that reveal stable temporal patterns contributing to vowel identity encoding. We analysed the psychoacoustic concepts of musical consonance and dissonance, tracing theories from Pythagoras to Helmholtz's proposal that dissonance results from roughness perception. The critical band concept explained why minor thirds sound dissonant in bass registers but consonant in higher octaves. This project demonstrated ability to synthesise complex neuroscience literature, integrate historical and contemporary research perspectives, and explain how neural mechanisms produce perceptual experiences.
+
+</div>
 
 <style>
 .project-hero {
